@@ -4,6 +4,12 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Ignored files ###
+*.properties
+
+### Not ignored files ###
+!**src/main/resources/application.properties.example
+
 ### STS ###
 .apt_generated
 .classpath
