@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of events</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>List of events</h1>
+    <a href="/events/new" class="btn">➕ Add new event</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Capacity</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="event : ${events}">
+            <td th:text="${event.name}"></td>
+            <td th:text="${#temporals.format(event.date, 'dd-MM-yyyy HH:mm')}"></td>
+            <td th:text="${event.capacity}"></td>
+            <td>
+                <a th:href="@{/events/{id}(id=${event.id})}" class="btn">📄 Show details</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
