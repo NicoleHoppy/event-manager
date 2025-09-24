@@ -11,6 +11,7 @@
     <p><strong>Description:</strong> <span th:text="${event.description}"></span></p>
     <p><strong>Date:</strong> <span th:text="${#temporals.format(event.date, 'dd-MM-yyyy HH:mm')}"></span></p>
     <p><strong>Capacity:</strong> <span th:text="${event.capacity}"></span></p>
+    <p><strong>Location:</strong> <span th:text="${event.location}"></span></p>
 
     <a href="/events" class="btn-back">⬅ Return to list</a>
 </div>

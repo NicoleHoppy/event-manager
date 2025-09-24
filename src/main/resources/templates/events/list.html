@@ -9,6 +9,7 @@
 <div class="container">
     <h1>List of events</h1>
     <a href="/events/new" class="btn">➕ Add new event</a>
+    <a href="/locations" class="btn">🏛 Manage locations</a>
 
     <table>
         <thead>
@@ -16,6 +17,7 @@
             <th>Name</th>
             <th>Date</th>
             <th>Capacity</th>
+            <th>Location</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -24,6 +26,7 @@
             <td th:text="${event.name}"></td>
             <td th:text="${#temporals.format(event.date, 'dd-MM-yyyy HH:mm')}"></td>
             <td th:text="${event.capacity}"></td>
+            <td th:text="${event.location != null ? event.location.name : 'N/A'}">Brak</td>
             <td>
                 <a th:href="@{/events/{id}(id=${event.id})}" class="btn">📄 Show details</a>
             </td>
