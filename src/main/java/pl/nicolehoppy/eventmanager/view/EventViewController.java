@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.nicolehoppy.eventmanager.model.Event;
 import pl.nicolehoppy.eventmanager.service.EventService;
+import pl.nicolehoppy.eventmanager.service.LocationService;
 
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ import java.util.Optional;
 public class EventViewController {
 
     private final EventService eventService;
+    private final LocationService locationService;
 
     @GetMapping("/events")
     public String listEvents(Model model){
@@ -27,6 +29,7 @@ public class EventViewController {
     @GetMapping("/events/new")
     public String showNewForm(Model model) {
         model.addAttribute("event", new Event());
+        model.addAttribute("locations", locationService.findAll());
         return "events/new";
     }
 
