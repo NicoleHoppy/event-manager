@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of locations</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+<h1>List of locations</h1>
+<p><a href="/locations/new" class="btn">➕ Add new location</a></p>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Street address</th>
+        <th>City</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="location : ${locations}">
+        <td th:text="${location.id}"></td>
+        <td th:text="${location.name}"></td>
+        <td th:text="${location.address}"></td>
+        <td th:text="${location.city}"></td>
+        <td>
+            <a th:href="@{'/locations/' + ${location.id}}" class="btn">Show details</a>
+            <a th:href="@{'/locations/' + ${location.id} + '/edit'}" class="btn">Edit</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<p><a href="/events" class="btn-back">⬅ Return to list</a></p>
+</div>
+</body>
+</html>
