@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Details of location</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+
+    <h1 th:text="${location.name}"></h1>
+    <p><strong>Street address:</strong> <span th:text="${location.address}"></span></p>
+    <p><strong>City:</strong> <span th:text="${location.city}"></span></p>
+
+<p>
+    <a href="/locations" class="btn-back">⬅ Return to list</a>
+    <a th:href="@{'/locations/' + ${location.id} + '/edit'}" class="btn">✏️ Edit</a>
+</p>
+</div>
+</body>
+</html>
